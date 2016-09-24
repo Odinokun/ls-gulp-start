@@ -10,6 +10,8 @@ global.$ = {
     app: require('./gulp/paths/app.js')
   },
   gulp: require('gulp'),
+  spritesmith: require('gulp.spritesmith'),
+  merge: require('merge-stream'),
   rimraf: require('rimraf'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')()
@@ -26,6 +28,7 @@ $.gulp.task('default', $.gulp.series(
     'pug',
     'js:foundation',
     'js:process',
+    'copy:fonts',
     'copy:image',
     'css:foundation',
     'sprite:svg'
